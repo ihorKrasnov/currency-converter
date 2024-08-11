@@ -1,0 +1,35 @@
+<div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-4">Конвертер валют:</h2>
+
+    <mat-form-field floatLabel="always" appearance="fill" class="w-full mb-4">
+        <mat-label>Сума та валюта 1</mat-label>
+        <div class="flex items-center">
+            <mat-form-field appearance="fill" class="w-full">
+                <input matInput type="number" min="0" step="0.01" [(ngModel)]="amount1" (ngModelChange)="convertCurrency(1)" placeholder="Сума">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ml-2">
+                <mat-select [(ngModel)]="currency1" (ngModelChange)="convertCurrency(1)" placeholder="Валюта">
+                    <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+                        {{ currency.value }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="fill" class="w-full">
+        <mat-label>Сума та валюта 2</mat-label>
+        <div class="flex items-center">
+            <mat-form-field appearance="fill" class="w-full">
+                <input matInput type="number" min="0" step="0.01" [(ngModel)]="amount2" (ngModelChange)="convertCurrency(2)" placeholder="Сума">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ml-2">
+                <mat-select [(ngModel)]="currency2" (ngModelChange)="convertCurrency(2)" placeholder="Валюта">
+                    <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+                        {{ currency.value }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-form-field>
+</div>
